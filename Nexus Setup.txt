@@ -1,0 +1,97 @@
+NEXUS
+
+Binary Repo Manager
+
+
+•	A Binary repository manager is a software tool designed to optimize the download and storage of binary files used and produced in software development.
+
+
+•	It centralizes the management of all the binary artifacts generated and used by the organization to overcome the complexity
+
+
+•	A binary repository is a software repository for packages, artifacts and their corresponding metadata. It can be used to store binary files produced by an organization itself, such as product releases
+
+
+•	As part of the development lifecycle, source code is continuously being built into binary artifacts using Continuous Integration. This may interact with a binary repository manager much like a developer would by getting artifacts from the repositories and pushing builds there.
+
+
+•	The Binary repository manager we are using is Nexus
+
+
+•	Nexus manages software "artifacts" required for development. If you develop software, your builds can download dependencies from Nexus and can publish artifacts to Nexus creating a new way to share artifacts within an organization.
+
+
+•	While Central repository has always served as a great convenience for developers but in scenarios where you have artifacts with other developers it's tough to maintain them, this is where Nexus helps  maintaining your own repositories to ensure stability within your organization.
+
+
+Repository Types
+
+
+•	Maven Central Repository
+o	Centralized location where all the dependencies are stored over internet
+
+
+•	Local Repository
+o	The maven local repository is a local folder that is used to store all your project’s dependencies . In simple, when you build a project, all dependency files will be stored in your Maven local repository.
+o	Stored in local machine i.e /home/user/.m2
+
+
+•	Remote Repository
+o	Sonatype Nexus
+i.	Snapshot Repository
+ii.	Release Repository
+
+
+
+•	Snapshots
+o	A snapshot is defined as an artifact with a version ending in -SNAPSHOT. They capture a work in progress and are used during development.
+o	When deployed, the snapshot is turned into a timestamp. By definition, snapshots are mutable.
+o	This is why Nexus makes you store them separately because usually you don't care if you lose snapshots.
+
+
+•	Releases
+o	These are specific, point-in-time releases. Released artifacts are considered to be solid & stable. Release will have a fixed version number.
+o	By definition, releases are immutable.
+o	The Central Maven repository stores release artifacts.
+
+
+Setting up Nexus
+
+
+•	Nexus Repository Manager is a Java application that requires a Java Runtime Environment. When you run Nexus Repository Manager, you are running a server application with a web-based user interface. The application itself runs with the Jetty servlet container.
+
+
+•	Nexus Repository Manager can be downloaded from Sonatype. Distributions are available for the 64-bit versions for Apple OSX, Microsoft Windows and Unix/Linux. They contain all necessary resources to install and run the repository manager. You can download the archive file for your operating system of a specific release version.
+
+
+•	Downloaded archive is suitable for installation without a graphical user interface purely using command line-based interaction.
+
+
+Nexus Installation
+
+
+Download the Nexus 2.X OSS  
+
+Once the archive is downloaded extract it
+cd ~
+wget https://download.sonatype.com/nexus/oss/nexus-2.14.18-01-bundle.tar.gz
+
+tar xvf nexus-2.14.18-01-bundle.tar.gz
+
+The bin folder contains the generic startup scripts for Unix-like platforms called nexus
+~/nexus-2.14.18-01/bin/nexus start
+
+
+
+
+
+Once the Nexus repository manager is started, By default port 8081 is used. To access the web application user interface, fire up a web browser and type in the URL http://serveripaddress:port/nexus
+
+netstat -ntpl | grep 8081
+ps -ef | grep nexus
+
+Browse http://serveripaddress:port/nexus
+
+
+The repository manager installation includes an administrative user with full access. Its username is admin and the password is admin123
+

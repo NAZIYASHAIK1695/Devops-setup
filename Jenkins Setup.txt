@@ -1,0 +1,26 @@
+Jenkins Setup
+
+
+Jenkins requires Java environment to run
+java & javac
+sudo yum -y install java-1.8*
+sudo amazon-linux-extras install epel
+
+
+Now we need to add jenkins repo, to our repository list, so that we can pull down and install jenkins package.
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+We will run a key so that we can trust this repo and pull down jenkins package
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+
+
+Now our key has been imported we can install the jenkins
+sudo yum -y install jenkins
+
+
+Now let’s enable the service
+sudo systemctl enable jenkins
+
+
+Now let’s start the service	
+sudo systemctl start jenkins
+

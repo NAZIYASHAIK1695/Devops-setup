@@ -1,0 +1,54 @@
+
+SONARQUBE
+
+
+SonarQube is an open source platform developed by SonarSource for continuous inspection of Code Quality
+
+
+SonarQube offers reports on duplicated code, coding standards, unit tests, bugs and security vulnerabilities
+
+
+SonarQube provides fully automated analysis and integration with Maven and Continuous Integration tools like Jenkins
+
+
+SonarQube is a Java application that requires a Java Runtime Environment and a Database.
+
+Setting Up SonarQube
+
+
+
+Install Java
+sudo yum -y install java-1.8.0* wget unzip	
+
+
+Download SonarQube
+cd ~
+wget  https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-6.7.7.zip
+unzip ~/sonarqube-6.7.7.zip
+
+
+Start the Sonar 
+	
+~/sonarqube-6.7.7/bin/linux-x86-64/sonar.sh status
+~/sonarqube-6.7.7/bin/linux-x86-64/sonar.sh start
+~/sonarqube-6.7.7/bin/linux-x86-64/sonar.sh status
+
+
+
+Default Credentials for login 
+Username : admin 
+Password : admin
+
+Perform Sonar Analysis 
+
+
+Provide Token -> Generate Token  
+What is your project main language - java
+Build Technology - Maven
+Copy the command you get in - Execute SonarQube For maven 
+Change the directory to Application i.e JavaApp you created using maven
+cd ~/JavaApp
+mvn sonar:sonar…………………………...
+http://server-ipaddress:9000
+
+Now you can see the project displayed under the projects section with analysis report.
